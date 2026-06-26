@@ -240,12 +240,15 @@ blog = f'''<section>
 # OUR WORK — real project gallery
 # ──────────────────────────────────────────────────────────────────
 GALLERY_PHOTOS = [
+    ("travertine-patio-pergola-lakewood-ranch-fl.jpg", "Travertine patio &amp; pergola", "Lakewood Ranch"),
     ("paver-driveway-tan-lakewood-ranch-fl.jpg", "Paver driveway", "Lakewood Ranch"),
+    ("concrete-stone-entry-steps-lakewood-ranch-fl.jpg", "Concrete &amp; stone entry steps", "Lakewood Ranch"),
+    ("spaced-paver-patio-gravel-joints-bradenton-fl.jpg", "Spaced paver patio, gravel joints", "Bradenton"),
+    ("paver-pool-deck-patio-lakewood-ranch-fl.jpg", "Paver pool deck &amp; patio", "Lakewood Ranch"),
     ("paver-driveway-charcoal-border-bradenton-fl.jpg", "Paver driveway, charcoal border", "Bradenton"),
+    ("paver-walkway-banded-lakewood-ranch-fl.jpg", "Paver walkway", "Lakewood Ranch"),
     ("paver-driveway-cobble-parrish-fl.jpg", "Cobble paver driveway", "Parrish"),
-    ("paver-walkway-driveway-lakewood-ranch-fl.jpg", "Paver walkway &amp; approach", "Lakewood Ranch"),
     ("paver-patio-gray-backyard-bradenton-fl.jpg", "Gray paver patio", "Bradenton"),
-    ("paver-driveway-brick-bradenton-fl.jpg", "Brick paver driveway", "Bradenton"),
 ]
 gallery_items = "".join(
     f'''<figure class="gallery-item">

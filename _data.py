@@ -30,9 +30,9 @@ BUSINESS = {
     "legal_name": "Lakewood Ranch Concrete LLC",
     "domain": "lakewoodranchconcretefl.com",
     # ---- PLACEHOLDERS (owner-supplied) ----
-    "phone": "{{PHONE}}",
-    "phone_display": "{{PHONE}}",
-    "phone_tel": "{{PHONE}}",
+    "phone": "+19413524308",
+    "phone_display": "(941) 352-4308",
+    "phone_tel": "+19413524308",
     "email": "{{EMAIL}}",
     "year_founded": "{{YEAR}}",
     "rating": "{{RATING}}",
