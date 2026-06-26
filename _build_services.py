@@ -7,6 +7,61 @@ from _gen import *
 REGION = "Lakewood Ranch, Manatee &amp; Sarasota"
 REGION_PLAIN = "Lakewood Ranch, Manatee & Sarasota"
 
+# Real project photos mapped ONLY to services they honestly depict (no stock/AI).
+SERVICE_PHOTOS = {
+    "paver-driveways": [
+        ("paver-driveway-tan-lakewood-ranch-fl.jpg", "Paver driveway"),
+        ("paver-driveway-charcoal-border-bradenton-fl.jpg", "Paver driveway with charcoal border"),
+        ("paver-driveway-cobble-parrish-fl.jpg", "Cobblestone paver driveway"),
+        ("paver-walkway-driveway-lakewood-ranch-fl.jpg", "Paver driveway and walkway"),
+        ("paver-driveway-brick-bradenton-fl.jpg", "Brick paver driveway"),
+    ],
+    "paver-patios-walkways": [
+        ("spaced-paver-patio-gravel-joints-bradenton-fl.jpg", "Spaced paver patio with gravel joints"),
+        ("paver-walkway-banded-lakewood-ranch-fl.jpg", "Banded paver walkway"),
+        ("spaced-paver-patio-lakewood-ranch-fl.jpg", "Spaced paver patio"),
+        ("paver-patio-gray-backyard-bradenton-fl.jpg", "Gray paver patio"),
+    ],
+    "pool-deck-pavers": [
+        ("paver-pool-deck-patio-lakewood-ranch-fl.jpg", "Paver pool deck and patio"),
+        ("travertine-patio-pergola-lakewood-ranch-fl.jpg", "Travertine patio under a pergola"),
+    ],
+}
+
+def project_photos_html(service_slug, city_slug=None):
+    photos = SERVICE_PHOTOS.get(service_slug)
+    if not photos:
+        return ""
+    if city_slug:
+        cname = CITIES.get(city_slug, {}).get("name", "")
+        keys = list(CITIES.keys())
+        idx = keys.index(city_slug) if city_slug in keys else 0
+        fn, label = photos[idx % len(photos)]
+        return f'''<section style="background:var(--paper)">
+  <div class="container">
+    <figure style="margin:0;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow)">
+      <img src="/images/projects/{fn}" alt="{label} by {BUSINESS['name']}, serving {cname}, FL" loading="lazy" style="width:100%;height:auto;display:block">
+      <figcaption style="background:var(--dark);color:var(--white);font-size:.82rem;letter-spacing:.04em;padding:12px 18px">Recent work · {label} · serving {cname} &amp; {REGION_PLAIN}</figcaption>
+    </figure>
+  </div>
+</section>'''
+    items = "".join(
+        f'''<figure class="gallery-item"><img src="/images/projects/{fn}" alt="{label} by {BUSINESS['name']} in {REGION_PLAIN}" loading="lazy"><figcaption class="gallery-caption">{label}</figcaption></figure>'''
+        for fn, label in photos[:3]
+    )
+    return f'''<section style="background:var(--paper)">
+  <div class="container-wide">
+    <div class="section-head">
+      <div class="section-head-num">★</div>
+      <div class="section-head-meta">
+        <span class="mono-label">Our Work · Real Projects</span>
+        <h2>Recent {SERVICES[service_slug]["short"].lower()} we&rsquo;ve <em>actually built</em>.</h2>
+      </div>
+    </div>
+    <div class="gallery-grid">{items}</div>
+  </div>
+</section>'''
+
 
 def lead_snippet(text, n=90):
     """Clip an intro_lead for use mid-sentence in a meta description without
@@ -416,7 +471,7 @@ def build_service_city(service_slug, city_slug):
         sub=f"Free on-site measure. Written estimate within 24 hours. {svc['short']} for {city_name} homes, built to the {BUSINESS['checklist_points']}-point {BUSINESS['name']} standard &mdash; Fully Insured."
     )
 
-    body = "\n".join([hero, lead, scope_html, checklist_html, neigh_html, mistakes_html, pricing_html, reviews_html, faq_html, related_html, f'<div class="container">{contact_banner(message="Free, no-pressure estimate within 24 hours.", subtitle="Call, text, or email — your project, your call.")}</div>', final_html])
+    body = "\n".join([hero, lead, project_photos_html(service_slug, city_slug=city_slug), scope_html, checklist_html, neigh_html, mistakes_html, pricing_html, reviews_html, faq_html, related_html, f'<div class="container">{contact_banner(message="Free, no-pressure estimate within 24 hours.", subtitle="Call, text, or email — your project, your call.")}</div>', final_html])
 
     head_html = head(TITLE, DESC, URL, og_image=og_url(service_slug), json_ld=schemas)
     out = f"{service_slug}/{city_slug}/index.html"
@@ -529,7 +584,7 @@ def build_service_hub(service_slug):
         sub=f"Free on-site measure. Written, line-itemized estimate within 24 hours. {svc['short']} built to the {BUSINESS['checklist_points']}-point {BUSINESS['name']} standard &mdash; Fully Insured."
     )
 
-    body = "\n".join([hero, lead, scope_html, checklist_html, mistakes_html, pricing_html, cities_html, reviews_html, faq_html, f'<div class="container">{contact_banner(message="Free, no-pressure estimate within 24 hours.", subtitle="Call, text, or email — your project, your call.")}</div>', final_html])
+    body = "\n".join([hero, lead, project_photos_html(service_slug), scope_html, checklist_html, mistakes_html, pricing_html, cities_html, reviews_html, faq_html, f'<div class="container">{contact_banner(message="Free, no-pressure estimate within 24 hours.", subtitle="Call, text, or email — your project, your call.")}</div>', final_html])
 
     head_html = head(TITLE, DESC, URL, og_image=og_url(service_slug), json_ld=schemas)
     out = f"{service_slug}/index.html"
