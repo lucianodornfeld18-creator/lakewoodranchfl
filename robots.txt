@@ -1,0 +1,53 @@
+User-agent: *
+Allow: /
+Disallow: /thanks/
+Disallow: /404.html
+
+# --- AI / LLM crawlers: explicitly allowed (GEO — we want to be cited) ---
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+# Sitemap
+Sitemap: https://lakewoodranchconcretefl.com/sitemap.xml
+
+# LLM-readable site summary
+# https://lakewoodranchconcretefl.com/llms.txt

@@ -1,0 +1,41 @@
+# Force HTTPS + non-www canonical (Cloudflare usually handles this, but explicit)
+http://lakewoodranchconcretefl.com/* https://lakewoodranchconcretefl.com/:splat 301!
+http://www.lakewoodranchconcretefl.com/* https://lakewoodranchconcretefl.com/:splat 301!
+https://www.lakewoodranchconcretefl.com/* https://lakewoodranchconcretefl.com/:splat 301!
+
+# Common path variations
+/services/* /:splat 301
+/service-areas/* /:splat 301
+/areas/* /:splat 301
+
+# Service slug variations
+/driveways/* /concrete-driveways/:splat 301
+/concrete-driveway/* /concrete-driveways/:splat 301
+/patios/* /concrete-patios/:splat 301
+/concrete-patio/* /concrete-patios/:splat 301
+/pool-decks/* /concrete-pool-decks/:splat 301
+/pool-deck/* /concrete-pool-decks/:splat 301
+/stamped/* /stamped-concrete/:splat 301
+/slabs/* /concrete-slabs/:splat 301
+/concrete-slab/* /concrete-slabs/:splat 301
+/resurfacing/* /concrete-resurfacing/:splat 301
+/concrete-overlay/* /concrete-resurfacing/:splat 301
+/pavers/* /paver-patios-walkways/:splat 301
+/paver-driveway/* /paver-driveways/:splat 301
+/paver-patios/* /paver-patios-walkways/:splat 301
+/paver-walkways/* /paver-patios-walkways/:splat 301
+/walkways/* /paver-patios-walkways/:splat 301
+/paver-pool-deck/* /pool-deck-pavers/:splat 301
+/travertine/* /pool-deck-pavers/:splat 301
+/sealing/* /paver-sealing/:splat 301
+
+# City variations
+/lakewoodranch/* /lakewood-ranch/:splat 301
+/lwr/* /lakewood-ranch/:splat 301
+/portcharlotte/* /port-charlotte/:splat 301
+/northport/* /north-port/:splat 301
+/puntagorda/* /punta-gorda/:splat 301
+/suncitycenter/* /sun-city-center/:splat 301
+
+# 404 fallback
+/* /404.html 404
