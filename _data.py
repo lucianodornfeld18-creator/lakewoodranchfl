@@ -33,7 +33,7 @@ BUSINESS = {
     "phone": "+19413524308",
     "phone_display": "(941) 352-4308",
     "phone_tel": "+19413524308",
-    "email": "{{EMAIL}}",
+    "email": "info@lakewoodranchconcretefl.com",
     "year_founded": "{{YEAR}}",
     "rating": "{{RATING}}",
     "review_count": "{{REVIEW_COUNT}}",
