@@ -27,8 +27,8 @@ ticker = ticker_bar()   # already built in _gen.py
 # ──────────────────────────────────────────────────────────────────
 hero = f'''<section class="hero">
   <img class="hero-bg-img"
-       src="/images/real-stamped-concrete-patio.webp"
-       alt="Stamped concrete patio and paver driveway installed by {BUSINESS['name']} in Lakewood Ranch"
+       src="/images/projects/paver-driveway-tan-lakewood-ranch-fl.jpg"
+       alt="Paver driveway installed by {BUSINESS['name']} in the Lakewood Ranch and Bradenton area"
        loading="eager" fetchpriority="high">
   <div class="hero-inner">
     <div class="hero-left">
@@ -237,6 +237,38 @@ blog = f'''<section>
 </section>'''
 
 # ──────────────────────────────────────────────────────────────────
+# OUR WORK — real project gallery
+# ──────────────────────────────────────────────────────────────────
+GALLERY_PHOTOS = [
+    ("paver-driveway-tan-lakewood-ranch-fl.jpg", "Paver driveway", "Lakewood Ranch"),
+    ("paver-driveway-charcoal-border-bradenton-fl.jpg", "Paver driveway, charcoal border", "Bradenton"),
+    ("paver-driveway-cobble-parrish-fl.jpg", "Cobble paver driveway", "Parrish"),
+    ("paver-walkway-driveway-lakewood-ranch-fl.jpg", "Paver walkway &amp; approach", "Lakewood Ranch"),
+    ("paver-patio-gray-backyard-bradenton-fl.jpg", "Gray paver patio", "Bradenton"),
+    ("paver-driveway-brick-bradenton-fl.jpg", "Brick paver driveway", "Bradenton"),
+]
+gallery_items = "".join(
+    f'''<figure class="gallery-item">
+  <img src="/images/projects/{fn}" alt="{label} installed by {BUSINESS['name']} in {city}, FL"
+       width="1600" height="900" loading="lazy">
+  <figcaption class="gallery-caption">{label} · {city}, FL</figcaption>
+</figure>''' for fn, label, city in GALLERY_PHOTOS
+)
+gallery = f'''<section style="background:var(--paper-deep)">
+  <div class="container-wide">
+    <div class="section-head">
+      <div class="section-head-num">★</div>
+      <div class="section-head-meta">
+        <span class="mono-label">Our Work · Real Projects</span>
+        <h2>Driveways, patios &amp; pavers we&rsquo;ve <em>actually built</em>.</h2>
+        <div class="section-head-text"><p>A few recent concrete &amp; paver projects across Manatee and Sarasota. Your project photos could be next.</p></div>
+      </div>
+    </div>
+    <div class="gallery-grid">{gallery_items}</div>
+  </div>
+</section>'''
+
+# ──────────────────────────────────────────────────────────────────
 # EXTRA CSS
 # ──────────────────────────────────────────────────────────────────
 EXTRA_CSS = """
@@ -368,6 +400,7 @@ body = "\n".join([
     trust_strip,
     services,
     why,
+    gallery,
     areas,
     process,
     checklist_html,
