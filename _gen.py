@@ -561,13 +561,13 @@ def head(title, desc, canonical, og_image=None, og_type="website", indexable=Tru
 <html lang="en">
 <head>
 <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QH57PV4QRK"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
 
-  gtag('config', 'GA_MEASUREMENT_ID');
+  gtag('config', 'G-QH57PV4QRK');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
