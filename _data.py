@@ -59,8 +59,8 @@ BUSINESS = {
     # ---- Profiles (fill when live) ----
     "google_profile": "{{GOOGLE_PROFILE_URL}}",
     "google_review_url": "{{GOOGLE_REVIEW_URL}}",
-    "facebook": "",
-    "instagram": "",
+    "facebook": "https://www.facebook.com/profile.php?id=61591647230902",
+    "instagram": "https://www.instagram.com/lakewoodranchconcrete/",
     "yelp": "",
     "thumbtack": "",
     "angi": "",
@@ -379,4 +379,28 @@ PROCESS_STEPS = [
     {"num": "02", "title": "Prep &amp; Form", "body": "We excavate, cut out soft soil, bring in and compact the base, set forms to the right slope, and place reinforcement &mdash; the work that decides whether the surface lasts."},
     {"num": "03", "title": "Pour or Pave", "body": "Same crew start to finish. Concrete poured, screeded, and finished to your chosen texture; or pavers laid to pattern with edge restraints and polymeric joint sand. Daily progress photos."},
     {"num": "04", "title": "Cure, Seal &amp; Walkthrough", "body": "We cut joints, cure or seal the surface, clean the site, hose-test the drainage, walk it with you, and hand over the care guide plus your written workmanship warranty."},
+]
+
+
+# ============================================================================
+# SOCIAL + DIRECTORY NETWORK (for footer icons + /directories/ page)
+# ============================================================================
+SOCIAL_LINKS = [
+    ("Facebook", BUSINESS["facebook"]),
+    ("Instagram", BUSINESS["instagram"]),
+]
+# Live profile links (only the ones we actually have go on the page as links)
+LIVE_PROFILES = [
+    ("Facebook", BUSINESS["facebook"]),
+    ("Instagram", BUSINESS["instagram"]),
+    ("Google Business Profile", BUSINESS["google_profile"]),
+]
+# Citation/listing network we are (or will be) listed on — builds the hub page
+DIRECTORY_NETWORK = [
+    "Google Business Profile", "Bing Places", "Apple Maps", "Yelp", "Facebook",
+    "Instagram", "Houzz", "Angi", "Thumbtack", "HomeAdvisor", "Porch", "BuildZoom",
+    "Nextdoor", "Better Business Bureau", "Manta", "Hotfrog", "Yellow Pages",
+    "Foursquare", "MerchantCircle", "Brownbook", "Cylex", "Pinterest", "Trustpilot",
+    "Alignable", "ChamberofCommerce.com", "Superpages", "Citysearch", "Local.com",
+    "EZlocal", "ShowMeLocal", "iBegin", "2FindLocal", "Bizapedia", "The Blue Book Network",
 ]
