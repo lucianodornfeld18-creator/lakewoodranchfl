@@ -17,7 +17,7 @@ YEAR = 2026  # current year, used only where a copyright year is needed
 # ============================================================================
 def build_about():
     URL = f"{SITE}/about/"
-    TITLE = f"About {BUSINESS['name']} · East Manatee Concrete & Paver Crew"
+    TITLE = f"About {BUSINESS['name']} · Concrete & Paver Crew"
     DESC = clip_desc(
         f"Meet {BUSINESS['name']} — an owner-operated concrete & paver crew based in "
         f"east Bradenton, serving Lakewood Ranch, Manatee & Sarasota. Fully insured, "
