@@ -167,7 +167,7 @@ def build_contact():
         <p style="font-size:1rem;color:var(--gray);margin-bottom:1.4rem">Tell us about the project &mdash; the surface, the rough square footage, and your timeline. The more detail, the better the first response. We&rsquo;ll reply by phone or email.</p>
 
         <form class="form-wrap" action="https://api.web3forms.com/submit" method="POST">
-          <input type="hidden" name="access_key" value="{{{{WEB3FORMS_KEY}}}}">
+          <input type="hidden" name="access_key" value="74487312-c3a2-4317-b586-9a41224cad9a">
           <input type="hidden" name="subject" value="New Free-Estimate Request — {BUSINESS['domain']}">
           <input type="hidden" name="from_name" value="{BUSINESS['name']} Website">
           <input type="hidden" name="redirect" value="{SITE}/thanks/">

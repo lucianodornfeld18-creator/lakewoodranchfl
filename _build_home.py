@@ -48,11 +48,12 @@ hero = f'''<section class="hero">
       </div>
     </div>
     <div class="hero-right">
-      <form class="hero-form" action="https://formsubmit.co/lakewoodranchconcrete@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Free Estimate Request — Lakewood Ranch Concrete">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_next" value="https://{BUSINESS['domain']}/thanks/">
+      <form class="hero-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="74487312-c3a2-4317-b586-9a41224cad9a">
+        <input type="hidden" name="subject" value="New Free Estimate Request — Lakewood Ranch Concrete">
+        <input type="hidden" name="from_name" value="Lakewood Ranch Concrete Website">
+        <input type="hidden" name="redirect" value="https://{BUSINESS['domain']}/thanks/">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
         <h3>Get a Free Estimate</h3>
         <p class="hf-sub">Written quote within 24 hours &mdash; no pressure.</p>
         <input type="text" name="name" placeholder="Full name" required>
