@@ -90,11 +90,17 @@ TEL_LINK = f"tel:{BUSINESS['phone']}"
 # ============================================================================
 from _cities_part1 import CITIES as _c1
 from _cities_part2 import CITIES as _c2
-CITIES = {**_c1, **_c2}
+from _cities_part3 import CITIES as _c3
+from _cities_part4 import CITIES as _c4
+CITIES = {**_c1, **_c2, **_c3, **_c4}
 
 CITY_ORDER = [
+    # Tier 1 — core Manatee / Sarasota / Charlotte + south Hillsborough
     "lakewood-ranch", "bradenton", "parrish", "palmetto", "ellenton", "sarasota",
     "venice", "north-port", "port-charlotte", "punta-gorda", "riverview", "sun-city-center",
+    # Tier 2 — extended reach (Tampa Bay, coastal islands, DeSoto, east Manatee)
+    "tampa", "st-petersburg", "brandon", "ruskin", "wimauma", "apollo-beach",
+    "osprey", "nokomis", "arcadia", "anna-maria", "longboat-key", "myakka-city",
 ]
 CITIES = {k: CITIES[k] for k in CITY_ORDER if k in CITIES}
 
