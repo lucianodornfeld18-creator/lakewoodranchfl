@@ -612,10 +612,11 @@ def header(active=""):
         f'<a href="/{slug}/"><span class="dot">{SERVICES[slug]["icon"]}</span>{SERVICES[slug]["name"]}</a>'
         for slug in SERVICE_ORDER
     )
+    _main_cities = list(CITIES)[:8]
     city_links = "".join(
         f'<a href="/{slug}/"><span class="dot">●</span>{CITIES[slug]["name"]}, FL</a>'
-        for slug in CITIES
-    )
+        for slug in _main_cities
+    ) + f'<a href="/directories/" style="font-weight:700;color:var(--orange-dark);border-top:1px solid var(--gray-border);margin-top:4px"><span class="dot">+</span>View all {len(CITIES)} service areas &rarr;</a>'
     nav_active = {
         "home":"", "services":"active", "areas":"active",
         "blog":"active", "about":"active", "contact":"active", "":""
