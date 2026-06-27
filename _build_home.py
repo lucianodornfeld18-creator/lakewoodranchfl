@@ -47,6 +47,24 @@ hero = f'''<section class="hero">
         <div><strong>Warranty</strong><span>Workmanship, In Writing</span></div>
       </div>
     </div>
+    <div class="hero-right">
+      <form class="hero-form" action="https://formsubmit.co/lakewoodrachconcrete@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="New Free Estimate Request — Lakewood Ranch Concrete">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://{BUSINESS['domain']}/thanks/">
+        <h3>Get a Free Estimate</h3>
+        <p class="hf-sub">Written quote within 24 hours &mdash; no pressure.</p>
+        <input type="text" name="name" placeholder="Full name" required>
+        <input type="tel" name="phone" placeholder="Phone number" required>
+        <input type="email" name="email" placeholder="Email (optional)">
+        <select name="service" required><option value="" disabled selected>Service needed&hellip;</option>{"".join(f'<option>{SERVICES[s]["name"]}</option>' for s in SERVICE_ORDER)}</select>
+        <input type="text" name="city" placeholder="Your city or ZIP">
+        <textarea name="message" rows="2" placeholder="Tell us about your project (optional)"></textarea>
+        <button type="submit" class="btn btn-orange" style="width:100%;justify-content:center">Get My Free Estimate <span class="btn-arrow"></span></button>
+        <span class="hf-trust">Fully insured &middot; We reply same day &middot; (941) 352-4308</span>
+      </form>
+    </div>
   </div>
 </section>'''
 
@@ -302,7 +320,17 @@ EXTRA_CSS = """
   max-width:var(--container);
   margin:0 auto;padding:0 28px;
   width:100%;
+  display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center;
 }
+@media(max-width:920px){.hero-inner{grid-template-columns:1fr;gap:26px}.hero-right{max-width:520px}}
+.hero-form{background:rgba(253,247,239,.97);border-radius:16px;padding:24px 22px;box-shadow:0 24px 60px rgba(0,0,0,.45);border-top:4px solid var(--orange)}
+.hero-form h3{font-family:var(--font-head);font-size:1.5rem;color:var(--ink);margin:0 0 2px;line-height:1.1}
+.hero-form .hf-sub{font-size:.85rem;color:var(--text-light);margin:0 0 14px}
+.hero-form input,.hero-form select,.hero-form textarea{width:100%;font-family:var(--font-body);font-size:.95rem;color:var(--text);background:#fff;border:1.5px solid var(--gray-border);border-radius:10px;padding:11px 13px;margin-bottom:9px}
+.hero-form input:focus,.hero-form select:focus,.hero-form textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(190,154,74,.18)}
+.hero-form textarea{resize:vertical}
+.hero-form button{margin-top:4px}
+.hero-form .hf-trust{display:block;text-align:center;font-size:.72rem;color:var(--text-light);margin-top:10px;letter-spacing:.02em}
 .hero-left{
   display:flex;flex-direction:column;
   max-width:640px;
