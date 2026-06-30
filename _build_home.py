@@ -8,13 +8,15 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _gen import *
 
 OUT = "index.html"
-TITLE = "Concrete & Paver Contractor · Lakewood Ranch & East Manatee FL"
+TITLE = "Concrete & Pavers · Lakewood Ranch & East Manatee FL"
 DESC = clip_desc(
     "Concrete driveways, patios, pool decks, stamped concrete & pavers across "
     "Lakewood Ranch, Bradenton & the Suncoast. Fully insured, free estimates, "
     "60-mile radius from Bradenton 34212.")
 CANONICAL = f"{SITE}/"
 SCHEMAS = [schema_website(), schema_organization(),
+           schema_local_business(CANONICAL, "Concrete & Paver Contractor in Lakewood Ranch & East Manatee, FL"),
+           schema_webpage(CANONICAL, TITLE, DESC),
            schema_breadcrumb([("Home", SITE + "/")])]
 
 # ──────────────────────────────────────────────────────────────────
@@ -54,7 +56,7 @@ hero = f'''<section class="hero">
         <input type="hidden" name="from_name" value="Lakewood Ranch Concrete Website">
         <input type="hidden" name="redirect" value="https://{BUSINESS['domain']}/thanks/">
         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
-        <h3>Get a Free Estimate</h3>
+        <div class="hf-h">Get a Free Estimate</div>
         <p class="hf-sub">Written quote within 24 hours &mdash; no pressure.</p>
         <input type="text" name="name" placeholder="Full name" required>
         <input type="tel" name="phone" placeholder="Phone number" required>
@@ -325,7 +327,7 @@ EXTRA_CSS = """
 }
 @media(max-width:920px){.hero-inner{grid-template-columns:1fr;gap:26px}.hero-right{max-width:520px}}
 .hero-form{background:rgba(253,247,239,.97);border-radius:16px;padding:24px 22px;box-shadow:0 24px 60px rgba(0,0,0,.45);border-top:4px solid var(--orange)}
-.hero-form h3{font-family:var(--font-head);font-size:1.5rem;color:var(--ink);margin:0 0 2px;line-height:1.1}
+.hero-form .hf-h{font-family:var(--font-head);font-weight:800;font-size:1.5rem;color:var(--ink);margin:0 0 2px;line-height:1.1}
 .hero-form .hf-sub{font-size:.85rem;color:var(--text-light);margin:0 0 14px}
 .hero-form input,.hero-form select,.hero-form textarea{width:100%;font-family:var(--font-body);font-size:.95rem;color:var(--text);background:#fff;border:1.5px solid var(--gray-border);border-radius:10px;padding:11px 13px;margin-bottom:9px}
 .hero-form input:focus,.hero-form select:focus,.hero-form textarea:focus{outline:none;border-color:var(--orange);box-shadow:0 0 0 3px rgba(190,154,74,.18)}
