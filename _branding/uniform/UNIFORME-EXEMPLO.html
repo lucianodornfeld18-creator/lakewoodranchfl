@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lakewood Ranch Concrete — Uniforme (exemplo)</title>
+<style>
+  :root{--gold:#BE9A4A;--ink:#15140f;--cream:#F5F0E6;--sand:#cdbfa3;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Outfit',system-ui,Arial,sans-serif;background:#e9e3d6;color:#241f12;line-height:1.5}
+  header{background:#15140f;color:#f5f0e6;padding:38px 24px 26px;border-bottom:5px solid var(--gold);text-align:center}
+  header h1{font-size:1.7rem}header p{color:#c9bfa6;margin-top:.4rem}
+  .wrap{max-width:1180px;margin:0 auto;padding:30px 18px 70px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-bottom:40px}
+  .panel{background:#fff;border-radius:16px;padding:22px;box-shadow:0 4px 18px rgba(40,32,16,.1);text-align:center}
+  .panel h2{font-size:1.05rem;margin-bottom:4px}
+  .panel .cap{font-size:.8rem;color:#8a8068;margin-bottom:16px}
+  /* T-SHIRT */
+  .tee{position:relative;width:380px;height:430px;margin:0 auto;
+    clip-path:polygon(35% 6%,30% 9%,20% 4%,0 20%,13% 40%,21% 33%,21% 100%,79% 100%,79% 33%,87% 40%,100% 20%,80% 4%,70% 9%,65% 6%,58% 13%,42% 13%);
+    display:flex;align-items:flex-start;justify-content:center}
+  .tee.black{background:linear-gradient(160deg,#272421,#15140f)}
+  .tee.sand{background:linear-gradient(160deg,#e2d6bc,#cdbfa3)}
+  .collar{position:absolute;top:5%;left:50%;transform:translateX(-50%);width:80px;height:34px;border:6px solid rgba(0,0,0,.18);border-top:none;border-radius:0 0 60px 60px}
+  .tee.black .collar{border-color:rgba(0,0,0,.5)}
+  .chest{position:absolute;top:21%;left:20%;width:30%}
+  .back-art{position:absolute;top:17%;left:14%;width:72%}
+  .files{background:#15140f;color:#f5f0e6;border-radius:16px;padding:26px 24px;margin-top:10px}
+  .files h2{color:var(--gold);border-bottom:2px solid #3a3528;padding-bottom:8px;margin-bottom:14px}
+  .files table{width:100%;border-collapse:collapse;font-size:.9rem}
+  .files td{padding:8px 6px;border-bottom:1px solid #2a261e;vertical-align:top}
+  .files .f{font-family:'Courier New',monospace;color:var(--gold)}
+  .note{background:#fff8ec;border:1px solid #f0e2c0;border-radius:8px;padding:14px 16px;font-size:.9rem;margin-top:16px;color:#241f12}
+</style>
+</head>
+<body>
+<header>
+  <h1>Uniforme — Lakewood Ranch Concrete</h1>
+  <p>Exemplo: camisa <b>preta</b> e <b>areia</b>. Frente = logo no peito · Costas = logo grande + serviços + telefonão.</p>
+</header>
+<div class="wrap">
+
+  <h2 style="margin:6px 0 14px;color:#15140f">1 · Camisa PRETA (recomendada)</h2>
+  <div class="row">
+    <div class="panel"><h2>Frente</h2><div class="cap">logo no peito esquerdo (~10 cm)</div>
+      <div class="tee black"><span class="collar"></span>
+        <img class="chest" src="../../images/logo-lwr-light.png" alt="logo peito"></div>
+    </div>
+    <div class="panel"><h2>Costas</h2><div class="cap">logo grande + serviços + telefone</div>
+      <div class="tee black"><span class="collar"></span>
+        <img class="back-art" src="BACK-print-for-DARK-shirt.png" alt="costas"></div>
+    </div>
+  </div>
+
+  <h2 style="margin:6px 0 14px;color:#15140f">2 · Camisa AREIA / KHAKI (segunda cor)</h2>
+  <div class="row">
+    <div class="panel"><h2>Frente</h2><div class="cap">logo no peito esquerdo (~10 cm)</div>
+      <div class="tee sand"><span class="collar"></span>
+        <img class="chest" src="../../images/logo-lwr-transparent.png" alt="logo peito"></div>
+    </div>
+    <div class="panel"><h2>Costas</h2><div class="cap">logo grande + serviços + telefone</div>
+      <div class="tee sand"><span class="collar"></span>
+        <img class="back-art" src="BACK-print-for-LIGHT-shirt.png" alt="costas"></div>
+    </div>
+  </div>
+
+  <div class="files">
+    <h2>Arquivos pra entregar na estamparia</h2>
+    <table>
+      <tr><td><b>Frente (peito) — camisa preta</b></td><td class="f">images/logo-lwr-light.png</td><td>imprimir ~10 cm de largura, peito esquerdo</td></tr>
+      <tr><td><b>Frente (peito) — camisa clara</b></td><td class="f">images/logo-lwr-transparent.png</td><td>~10 cm, peito esquerdo</td></tr>
+      <tr><td><b>Costas — camisa preta</b></td><td class="f">BACK-print-for-DARK-shirt.png</td><td>~28–30 cm de largura, centralizado</td></tr>
+      <tr><td><b>Costas — camisa clara</b></td><td class="f">BACK-print-for-LIGHT-shirt.png</td><td>~28–30 cm, centralizado</td></tr>
+    </table>
+  </div>
+
+  <div class="note">
+    <b>Dicas pra estamparia:</b> todos os PNG têm <b>fundo transparente</b> (a estamparia imprime direto na cor da camisa).
+    Para camisa preta use os arquivos de texto <b>creme</b> (light); para camisa clara use os de texto <b>preto</b> (dark/transparent).
+    Técnicas: <b>DTF</b> ou <b>serigrafia</b> (silk) ficam ótimas com esse design dourado.
+    Se a estamparia pedir <b>vetor/SVG ou PDF/CMYK</b>, me avise que eu exporto. O mockup acima é só ilustrativo — o print real sai com a qualidade dos PNGs (300 DPI).
+  </div>
+
+</div>
+</body>
+</html>
