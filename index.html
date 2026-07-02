@@ -155,15 +155,20 @@
 .proof-strip .proof-num{font-weight:800;letter-spacing:-.01em}
 
 /* ── RESPONSIVE ── */
+@media(max-width:920px){
+  .hero{height:auto;max-height:none;min-height:0;overflow:visible;padding:34px 0 44px}
+  .hero-inner{padding:0 20px}
+  .home-services .services-grid{grid-template-columns:1fr 1fr}
+}
 @media(max-width:768px){
-  .hero{height:calc(100vh - 80px - 44px);min-height:440px}
-  .hero::after{background:linear-gradient(180deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,.70) 100%)}
+  .hero::after{background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.72) 100%)}
   .hero-h1{font-size:clamp(1.85rem,6vw,2.7rem)}
   .proof-strip .proof-grid{grid-template-columns:repeat(2,1fr)}
 }
-@media(max-width:520px){
-  .hero{height:calc(100vh - 72px - 44px);min-height:400px}
-  .hero-inner{padding:0 18px}
+@media(max-width:600px){
+  .hero-inner{padding:0 16px}
+  .home-services .services-grid{grid-template-columns:1fr}
+  .home-services .service-card{min-height:0}
   .proof-strip .proof-grid{grid-template-columns:1fr 1fr}
 }
 </style><link rel="preload" href="/images/real-stamped-concrete-patio.webp" as="image">
