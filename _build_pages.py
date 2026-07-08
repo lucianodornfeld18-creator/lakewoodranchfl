@@ -107,6 +107,7 @@ def build_contact():
 
     schemas = [
         schema_webpage(URL, f"Contact {BUSINESS['name']}", DESC),
+        schema_local_business(URL, f"Contact {BUSINESS['name']}"),
         schema_breadcrumb([("Home", SITE+"/"), ("Contact", URL)]),
     ]
     bc = breadcrumbs([("Home","/"),("Contact",None)])

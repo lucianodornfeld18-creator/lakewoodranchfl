@@ -15,7 +15,7 @@ TODAY = date.today().isoformat()
 # Static / company pages that always exist in the site.
 STATIC_PAGES = [
     "about", "contact", "faq", "financing", "warranty",
-    "privacy-policy", "terms",
+    "privacy-policy", "terms", "directories",
 ]
 
 
@@ -83,6 +83,8 @@ def build_robots():
 Allow: /
 Disallow: /thanks/
 Disallow: /404.html
+Disallow: /ENTREGA-SITE
+Disallow: /ENTREGA-SITE.html
 
 # --- AI / LLM crawlers: explicitly allowed (GEO — we want to be cited) ---
 User-agent: GPTBot

@@ -15,20 +15,22 @@ SITE = f"https://{DOMAIN}"
 # instead of every page sharing one og-default.jpg.
 # ============================================================================
 OG_BY_SERVICE = {
-    "concrete-driveways":     "/images/photo-concrete-driveway.jpg",
-    "concrete-patios":        "/images/photo-concrete-patio.jpg",
-    "concrete-pool-decks":    "/images/photo-pool-deck.jpg",
-    "stamped-concrete":       "/images/photo-stamped-concrete.jpg",
-    "concrete-slabs":         "/images/photo-concrete-slab.jpg",
-    "concrete-resurfacing":   "/images/photo-resurfacing.jpg",
-    "paver-driveways":        "/images/photo-paver-driveway.jpg",
-    "paver-patios-walkways":  "/images/photo-paver-patio.jpg",
-    "pool-deck-pavers":       "/images/photo-pool-deck-pavers.jpg",
-    "paver-sealing":          "/images/photo-paver-sealing.jpg",
+    # Only reference images that exist on disk: real project photos where we
+    # have them, og-default.jpg for concrete services until photos arrive.
+    "concrete-driveways":     "/images/og-default.jpg",
+    "concrete-patios":        "/images/og-default.jpg",
+    "concrete-pool-decks":    "/images/og-default.jpg",
+    "stamped-concrete":       "/images/og-default.jpg",
+    "concrete-slabs":         "/images/og-default.jpg",
+    "concrete-resurfacing":   "/images/og-default.jpg",
+    "paver-driveways":        "/images/projects/paver-driveway-tan-lakewood-ranch-fl.jpg",
+    "paver-patios-walkways":  "/images/projects/paver-patio-gray-backyard-bradenton-fl.jpg",
+    "pool-deck-pavers":       "/images/projects/paver-pool-deck-patio-lakewood-ranch-fl.jpg",
+    "paver-sealing":          "/images/projects/paver-driveway-charcoal-border-bradenton-fl.jpg",
 }
-OG_CITY      = "/images/photo-paver-driveway.jpg"
-OG_GUIDES    = "/images/photo-stamped-concrete.jpg"
-OG_GLOSSARY  = "/images/photo-concrete-patio.jpg"
+OG_CITY      = "/images/projects/paver-driveway-tan-lakewood-ranch-fl.jpg"
+OG_GUIDES    = "/images/projects/travertine-patio-pergola-lakewood-ranch-fl.jpg"
+OG_GLOSSARY  = "/images/projects/spaced-paver-patio-lakewood-ranch-fl.jpg"
 
 def og_url(service_slug=None, path=None):
     """Absolute OG image URL for a given service slug (or explicit path)."""
@@ -701,6 +703,7 @@ def footer():
       <div style="display:flex;gap:10px;margin-top:1.2rem">
         <a href="{BUSINESS['facebook']}" target="_blank" rel="noopener" aria-label="Facebook" style="width:40px;height:40px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;color:var(--orange);transition:all .2s"><svg viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.89v2.25h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
         <a href="{BUSINESS['instagram']}" target="_blank" rel="noopener" aria-label="Instagram" style="width:40px;height:40px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;color:var(--orange);transition:all .2s"><svg viewBox="0 0 24 24" fill="currentColor" width="19" height="19"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16zm0 3.68a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zm0 10.16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm7.84-10.4a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+        <a href="{BUSINESS['yelp']}" target="_blank" rel="noopener" aria-label="Yelp" style="width:40px;height:40px;border:1px solid rgba(255,255,255,.22);border-radius:50%;display:grid;place-items:center;color:var(--orange);transition:all .2s"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M12 17.27l6.18 3.73-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg></a>
       </div>
     </div>
     <div class="footer-col">

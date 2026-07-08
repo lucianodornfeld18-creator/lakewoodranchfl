@@ -246,6 +246,7 @@ and backlinks &mdash; addressed by Prompt&nbsp;2 (GBP + reviews + citations + ba
 
 OUT = f"""<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
 <title>Entrega &mdash; Lakewood Ranch Concrete (Site)</title>
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}

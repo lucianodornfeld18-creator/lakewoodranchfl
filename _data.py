@@ -61,7 +61,7 @@ BUSINESS = {
     "google_review_url": "{{GOOGLE_REVIEW_URL}}",
     "facebook": "https://www.facebook.com/profile.php?id=61591647230902",
     "instagram": "https://www.instagram.com/lakewoodranchconcrete/",
-    "yelp": "",
+    "yelp": "https://www.yelp.com/biz/19MGRyaLTd4e9eb3F3nscw",
     "thumbtack": "",
     "angi": "",
     "houzz": "",
@@ -394,11 +394,13 @@ PROCESS_STEPS = [
 SOCIAL_LINKS = [
     ("Facebook", BUSINESS["facebook"]),
     ("Instagram", BUSINESS["instagram"]),
+    ("Yelp", BUSINESS["yelp"]),
 ]
 # Live profile links (only the ones we actually have go on the page as links)
 LIVE_PROFILES = [
     ("Facebook", BUSINESS["facebook"]),
     ("Instagram", BUSINESS["instagram"]),
+    ("Yelp", BUSINESS["yelp"]),
     ("Google Business Profile", BUSINESS["google_profile"]),
 ]
 # Citation/listing network we are (or will be) listed on — builds the hub page

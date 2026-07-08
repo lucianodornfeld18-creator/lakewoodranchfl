@@ -450,7 +450,7 @@ body = "\n".join([
 ])
 
 extra = (f'<style>{EXTRA_CSS}</style>'
-         '<link rel="preload" href="/images/real-stamped-concrete-patio.webp" as="image">')
+         '<link rel="preload" href="/images/projects/paver-driveway-tan-lakewood-ranch-fl.jpg" as="image">')
 
 head_html = head(TITLE, DESC, CANONICAL, og_image=og_url(path="/images/og-default.jpg"), json_ld=SCHEMAS, extra_meta=extra)
 write_page(OUT, head_html, header(active="home"), body)

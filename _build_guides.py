@@ -442,15 +442,17 @@ The floor itself is the easy part. In a condo or HOA community, the sound rating
 # ============================================================================
 def build_guides_index():
     URL = f"{SITE}/guides/"
-    TITLE = "Flooring Guides · Tampa Bay · Napa's Flooring"  # 47
+    # NOTE: guide bodies in this file are legacy flooring content from another
+    # project — rewrite for concrete/pavers BEFORE ever populating GUIDES.
+    TITLE = f"Concrete & Paver Guides · Lakewood Ranch · {BUSINESS['name']}"
     DESC = clip_desc(
-        "Plain-English flooring decision guides from working Tampa Bay installers — herringbone "
-        "premiums, porcelain vs. LVP kitchens, reading a quote, slab moisture, HOA condo rules, and more."
+        "Plain-English concrete and paver decision guides from a working Lakewood Ranch crew — "
+        "driveways, patios, pool decks, sealing, HOA/ARC approvals, and more."
     )
     schemas = [
         schema_breadcrumb([("Home", SITE + "/"), ("Guides", URL)]),
         schema_webpage(URL, TITLE, DESC),
-        schema_local_business(URL, "Napa's Flooring Guides"),
+        schema_local_business(URL, f"{BUSINESS['name']} Guides"),
     ]
     bc = breadcrumbs([("Home", "/"), ("Guides", None)])
 

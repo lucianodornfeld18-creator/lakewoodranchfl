@@ -2,6 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /thanks/
 Disallow: /404.html
+Disallow: /ENTREGA-SITE
+Disallow: /ENTREGA-SITE.html
 
 # --- AI / LLM crawlers: explicitly allowed (GEO — we want to be cited) ---
 User-agent: GPTBot
