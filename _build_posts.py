@@ -5,7 +5,7 @@
 Outputs: images/posts/*.jpg (public), _branding/POSTS-3-MESES.html,
 _branding/posts-gbp.csv.
 """
-import os, sys, csv, datetime
+import os, sys, csv, html, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from _data import SERVICES, SERVICE_ORDER, CITIES, BUSINESS
 from PIL import Image, ImageDraw, ImageFont, ImageOps
@@ -105,7 +105,7 @@ def tags(short, cname):
     return f"#{st} #{ct} #ConcreteContractor #Pavers #{ct}FL"
 
 def post_text(t, slug, cslug):
-    sv = SERVICES[slug]; name = sv["name"]; short = sv["short"]; low = short.lower()
+    sv = SERVICES[slug]; name = html.unescape(sv["name"]); short = html.unescape(sv["short"]); low = short.lower()
     cname = CITIES[cslug]["name"]; b = BENEFIT[slug]; near = NEARBY[cslug]
     link = f"https://{DOMAIN}/{slug}/{cslug}/"; h = tags(short, cname)
     if t == 0:
