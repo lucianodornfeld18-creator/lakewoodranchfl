@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Marketing deliverable (NOT a public site page):
-3 months of Google/Facebook/Instagram posts (3x/week = 36) + 5 branded image
-templates + a HighLevel-ready CSV (dates, content, public image URLs).
+3 months of Google/Facebook/Instagram posts (3x/week = 36) + branded image
+templates (11 photo + 1 solid) + a HighLevel-ready CSV.
 Outputs: images/posts/*.jpg (public), _branding/POSTS-3-MESES.html,
 _branding/posts-highlevel.csv.
 """
@@ -20,6 +20,12 @@ INK=(21,20,15); GOLD=(190,154,74); GOLD_LT=(217,190,126); CREAM=(245,240,230)
 
 def OF(w, sz): return ImageFont.truetype(os.path.join(FD, f"Outfit-{w}.ttf"), sz)
 logo = Image.open(os.path.join(IMG, "logo-lwr-light.png")).convert("RGBA")
+
+def _fit(d, text, maxw, start, weight=800, floor=44):
+    sz = start
+    while sz > floor and d.textlength(text, font=OF(weight,sz)) > maxw:
+        sz -= 4
+    return OF(weight, sz)
 
 def _grad(W, H):
     ov = Image.new("RGBA", (W, H), (0,0,0,0)); d = ImageDraw.Draw(ov)
@@ -42,7 +48,7 @@ def make_photo(photo, headline, out):
     bg = Image.alpha_composite(bg, _grad(W,H))
     l = logo.copy(); l.thumbnail((360,360)); bg.alpha_composite(l,(50,46))
     d = ImageDraw.Draw(bg)
-    d.text((56, H-286), headline, font=OF(800,70), fill=CREAM)
+    d.text((56, H-286), headline, font=_fit(d,headline,W-110,70), fill=CREAM)
     d.text((58, H-196), "FREE ESTIMATE  ·  FULLY INSURED", font=OF(600,34), fill=GOLD_LT)
     _cta(bg, W, H)
     bg.convert("RGB").save(os.path.join(POSTS,out),"JPEG",quality=88)
@@ -52,23 +58,36 @@ def make_solid(headline, out):
     im = Image.new("RGBA",(W,H),INK+(255,)); d=ImageDraw.Draw(im)
     d.rectangle((0,0,W,14),fill=GOLD)
     l = logo.copy(); l.thumbnail((520,520)); im.alpha_composite(l,((W-l.width)//2,120))
-    d.text((W/2, 560), headline, font=OF(800,78), fill=GOLD_LT, anchor="mm")
+    d.text((W/2, 560), headline, font=_fit(d,headline,W-140,78), fill=GOLD_LT, anchor="mm")
     d.text((W/2, 650), "FREE ESTIMATE  ·  FULLY INSURED  ·  SAME CREW", font=OF(600,32), fill=CREAM, anchor="mm")
     _cta(im, W, H)
     im.convert("RGB").save(os.path.join(POSTS,out),"JPEG",quality=88)
 
-make_photo("paver-driveway-tan-lakewood-ranch-fl.jpg","PAVER DRIVEWAYS","post-1-paver-driveways.jpg")
-make_photo("spaced-paver-patio-gravel-joints-bradenton-fl.jpg","PAVER PATIOS","post-2-paver-patios.jpg")
-make_photo("travertine-patio-pergola-lakewood-ranch-fl.jpg","TRAVERTINE POOL DECKS","post-3-pool-decks.jpg")
-make_solid("CONCRETE & PAVERS","post-4-concrete-pavers.jpg")
-make_photo("paver-walkway-banded-lakewood-ranch-fl.jpg","WALKWAYS & PATIOS","post-5-walkways.jpg")
+TEMPLATES = [
+    ("paver-driveway-tan-lakewood-ranch-fl.jpg","PAVER DRIVEWAYS","post-01.jpg"),
+    ("paver-driveway-charcoal-border-bradenton-fl.jpg","PAVER DRIVEWAYS","post-02.jpg"),
+    ("paver-driveway-cobble-parrish-fl.jpg","PAVER DRIVEWAYS","post-03.jpg"),
+    ("paver-driveway-brick-bradenton-fl.jpg","BRICK PAVER DRIVEWAYS","post-04.jpg"),
+    ("spaced-paver-patio-gravel-joints-bradenton-fl.jpg","PAVER PATIOS","post-05.jpg"),
+    ("spaced-paver-patio-lakewood-ranch-fl.jpg","SPACED PAVER PATIOS","post-06.jpg"),
+    ("paver-patio-gray-backyard-bradenton-fl.jpg","PAVER PATIOS","post-07.jpg"),
+    ("travertine-patio-pergola-lakewood-ranch-fl.jpg","TRAVERTINE POOL DECKS","post-08.jpg"),
+    ("paver-pool-deck-patio-lakewood-ranch-fl.jpg","PAVER POOL DECKS","post-09.jpg"),
+    ("paver-walkway-banded-lakewood-ranch-fl.jpg","PAVER WALKWAYS","post-10.jpg"),
+    ("concrete-stone-entry-steps-lakewood-ranch-fl.jpg","STEPS & ENTRIES","post-11.jpg"),
+]
+for src, hl, out in TEMPLATES:
+    make_photo(src, hl, out)
+make_solid("CONCRETE & PAVERS","post-solid.jpg")
 
-IMG_MAP = {
-    "concrete-driveways":"post-4-concrete-pavers.jpg","concrete-patios":"post-4-concrete-pavers.jpg",
-    "concrete-pool-decks":"post-3-pool-decks.jpg","stamped-concrete":"post-4-concrete-pavers.jpg",
-    "concrete-slabs":"post-4-concrete-pavers.jpg","concrete-resurfacing":"post-3-pool-decks.jpg",
-    "paver-driveways":"post-1-paver-driveways.jpg","paver-patios-walkways":"post-2-paver-patios.jpg",
-    "pool-deck-pavers":"post-3-pool-decks.jpg","paver-sealing":"post-2-paver-patios.jpg",
+IMG_POOL = {
+    "concrete-driveways":["post-solid.jpg"], "concrete-patios":["post-solid.jpg"],
+    "concrete-pool-decks":["post-solid.jpg"], "stamped-concrete":["post-solid.jpg"],
+    "concrete-slabs":["post-11.jpg","post-solid.jpg"], "concrete-resurfacing":["post-solid.jpg"],
+    "paver-driveways":["post-01.jpg","post-02.jpg","post-03.jpg","post-04.jpg"],
+    "paver-patios-walkways":["post-05.jpg","post-06.jpg","post-07.jpg","post-10.jpg"],
+    "pool-deck-pavers":["post-08.jpg","post-09.jpg"],
+    "paver-sealing":["post-07.jpg","post-05.jpg"],
 }
 BENEFIT = {
     "concrete-driveways":"a poured concrete driveway engineered for Florida heat and shifting soil",
@@ -114,7 +133,7 @@ today = datetime.date.today()
 start = today + datetime.timedelta(days=((0 - today.weekday()) % 7) or 7)
 DAY_OFFSET = [0, 2, 4]; DAY_NAME = ["Monday","Wednesday","Friday"]; POST_TIME = "09:00"
 
-rows_html = ""; csv_rows = []
+rows_html = ""; csv_rows = []; occ = {}
 for wk in range(12):
     week_html = ""
     for di in range(3):
@@ -123,7 +142,8 @@ for wk in range(12):
         cslug = POST_CITY_SLUGS[i % len(POST_CITY_SLUGS)]
         t = i % 5
         text, blabel, blink = post_text(t, slug, cslug)
-        img = IMG_MAP[slug]
+        pool = IMG_POOL[slug]; k = occ.get(slug, 0); occ[slug] = k + 1
+        img = pool[k % len(pool)]
         url = f"https://{DOMAIN}/images/posts/{img}"
         date = (start + datetime.timedelta(days=wk*7 + DAY_OFFSET[di])).isoformat()
         csv_rows.append([date, POST_TIME, "Google Business Profile; Facebook; Instagram", text, url, blabel, blink])
@@ -139,6 +159,8 @@ with open(os.path.join(ROOT, "_branding", "posts-highlevel.csv"), "w", newline="
     w = csv.writer(f)
     w.writerow(["Date","Time","Platforms","Content","Image URL","Button","Button Link"])
     w.writerows(csv_rows)
+
+thumbs = "".join(f'<img src="../images/posts/{o}">' for _,_,o in TEMPLATES) + '<img src="../images/posts/post-solid.jpg">'
 
 HTML = f'''<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -156,30 +178,25 @@ HTML = f'''<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
   .ty{{font-size:.72rem;color:#9A7C32;font-weight:700}} .dt{{font-family:monospace;font-size:.72rem;color:#6b6453}}
   .txt{{background:#faf5ea;border-left:3px solid #BE9A4A;padding:10px 12px;border-radius:0 6px 6px 0}}
   .btn{{font-size:.78rem;color:#6b6453;margin-top:6px}} .lnk{{font-family:monospace;font-size:.75rem;color:#9A7C32}}
-  .thumbs{{display:flex;gap:10px;flex-wrap:wrap}} .thumbs img{{width:180px;border-radius:8px}}
+  .thumbs{{display:flex;gap:10px;flex-wrap:wrap}} .thumbs img{{width:150px;border-radius:8px}}
   .note{{background:#fff8ec;border:1px solid #f0e2c0;border-radius:8px;padding:12px 15px;font-size:.9rem;margin:.6rem 0}}
   ol li{{margin:.35rem 0}} code{{background:#efe9dc;padding:1px 6px;border-radius:4px}}
 </style></head><body>
 <header><h1>Google / Facebook / Instagram Posts — 3 meses (36 posts &middot; 3x/semana)</h1>
-<p>Agende no HighLevel Social Planner. CSV pronto: <code>_branding/posts-highlevel.csv</code>. Imagens p&uacute;blicas em <code>images/posts/</code>.</p></header>
+<p>12 templates de imagem + 36 textos com keyword servi&ccedil;o&times;cidade + CTA. Agende no HighLevel. CSV: <code>_branding/posts-highlevel.csv</code>.</p></header>
 <div class="wrap">
 
-<div class="card"><h2>Automatizar no HighLevel (voc&ecirc; j&aacute; tem GBP + FB + IG conectados)</h2>
+<div class="card"><h2>Automatizar no HighLevel (GBP + FB + IG conectados)</h2>
 <ol>
-<li><b>Publique o site</b> (git push) para as imagens ficarem p&uacute;blicas em <code>https://{DOMAIN}/images/posts/post-1-paver-driveways.jpg</code>.</li>
-<li>HighLevel &rarr; <b>Marketing &rarr; Social Planner</b>.</li>
-<li>Clique em <b>&ldquo;+ New Post&rdquo;</b> e procure a op&ccedil;&atilde;o <b>CSV / Bulk import</b>. <b>Baixe o template CSV do HighLevel</b>.</li>
-<li>Abra <code>posts-highlevel.csv</code> e cole as colunas <b>Date, Time, Content, Image URL</b> no template do HL; marque as contas <b>Google Business Profile + Facebook + Instagram</b>.</li>
-<li>Confirme fuso e hor&aacute;rio (09:00) e <b>agende</b>. Pronto: 36 posts, 3 meses, no piloto autom&aacute;tico.</li>
+<li>HighLevel &rarr; <b>Marketing &rarr; Social Planner</b> &rarr; <b>+ New Post &rarr; CSV / Bulk import</b>.</li>
+<li>Baixe o template CSV do HL, cole as colunas <b>Date, Time, Content, Image URL</b> do <code>posts-highlevel.csv</code>, marque <b>GBP + Facebook + Instagram</b>, confirme fuso e agende.</li>
+<li>Sem CSV no plano? Fa&ccedil;a manual com &ldquo;Duplicate&rdquo;. O calend&aacute;rio abaixo tem tudo pronto.</li>
 </ol>
-<div class="note"><b>Se o seu plano n&atilde;o tiver import CSV:</b> use o manual &mdash; &ldquo;+ New Post&rdquo;, cole o texto, suba a imagem, marque GBP+FB+IG, escolha a data e use <b>&ldquo;Duplicate&rdquo;</b> pra acelerar. O calend&aacute;rio abaixo tem tudo pronto pra copiar.</div>
-</div>
+<div class="note">Imagens p&uacute;blicas: <code>https://{DOMAIN}/images/posts/post-01.jpg</code> &hellip; (fa&ccedil;a git push antes de agendar).</div></div>
 
-<div class="card"><h2>As 5 imagens (1200&times;900)</h2>
-<div class="thumbs">
-<img src="../images/posts/post-1-paver-driveways.jpg"><img src="../images/posts/post-2-paver-patios.jpg">
-<img src="../images/posts/post-3-pool-decks.jpg"><img src="../images/posts/post-4-concrete-pavers.jpg">
-<img src="../images/posts/post-5-walkways.jpg"></div></div>
+<div class="card"><h2>12 templates de imagem (1200&times;900)</h2>
+<div class="thumbs">{thumbs}</div>
+<div class="note">Quando enviar <b>fotos reais de concreto</b> (driveway/patio/stamped de concreto liso), adiciono templates com foto pros servi&ccedil;os de concreto (hoje usam o template preto+dourado).</div></div>
 
 <div class="card"><h2>Calend&aacute;rio &mdash; 36 posts (a partir de {start.isoformat()})</h2>
 <table>{rows_html}</table></div>
@@ -188,4 +205,4 @@ HTML = f'''<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8">
 
 with open(os.path.join(ROOT, "_branding", "POSTS-3-MESES.html"), "w", encoding="utf-8") as f:
     f.write(HTML)
-print(f"Wrote images/posts/*.jpg (5), POSTS-3-MESES.html, posts-highlevel.csv (36 rows from {start.isoformat()})")
+print(f"Wrote {len(TEMPLATES)+1} post templates + POSTS-3-MESES.html + posts-highlevel.csv (from {start.isoformat()})")
